@@ -6,20 +6,17 @@ import java.util.Random;
  *  employee report class handling all operation
  */
 public class Employeereport {
-
-	public static void main(String[] args) {
-		/*user display message*/
-  System.out.println("Welcome to Employee Wage Computation ");
-   int attendance ;
+  int attendance ;
   int daily_wage = 0;
   int emptype ;
- 
   int month_wage = 0;
-
- int total_hr = 0;
- int days = 1;
+  int total_hr = 0;
+  int days = 1;
+ 
  Random random = new Random();
-
+ 
+  public void  calculatewage()
+    {
  while(days != 21 && total_hr < 100 ) {
 		System.out.println("Day:"+days+"     Total_Hr:"+total_hr);
 		 daily_wage = 0;
@@ -58,10 +55,16 @@ public class Employeereport {
   }
   
   System.out.println("Employee Total  Monthly  Wage: "+month_wage);
- 
-	
-}
-}
-   
+ }
   
+
+  
+	public static void main(String[] args) {
+		/*user display message*/
+  System.out.println("Welcome to Employee Wage Computation ");
+  Employeereport employeereport = new Employeereport();
+  employeereport.calculatewage();
+	}
+   
+	}
 

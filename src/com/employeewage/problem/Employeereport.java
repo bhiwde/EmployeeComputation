@@ -13,27 +13,20 @@ public class Employeereport {
    int attendance ;
   int daily_wage = 0;
   int emptype ;
-  int i;
+ 
   int month_wage = 0;
-  final int IS_ABSENT = 0;
-  final int WAGE_PER_HR = 20;
-  final int FULL_TIME_HR =8;
-  final int PART_TIME_HR = 4;
-  final int IS_PART_TIME = 0;
-  final int IS_full_TIME = 1;
 
-  
+ int total_hr = 0;
+ int days = 1;
  Random random = new Random();
-  
-  for( i = 1;i<21;i++) {
-	  System.out.println("Day"+i);
-	 
-	  
-	  
-  attendance = random.nextInt(2);
+
+ while(days != 21 && total_hr < 100 ) {
+		System.out.println("Day:"+days+"     Total_Hr:"+total_hr);
+		 daily_wage = 0;
+	 attendance = random.nextInt(2);
   System.out.println("Attendance:"+attendance);
 
-  if(attendance == IS_ABSENT) {
+  if(attendance == Constants.IS_ABSENT) {
 	   System.out.println("Employee is Absent");
    }
    else  {
@@ -42,38 +35,33 @@ public class Employeereport {
 	        emptype = random.nextInt(2);
       switch(emptype)
             {
-            case IS_PART_TIME :
+            case Constants.IS_PART_TIME :
 			   System.out.println("Employee is Part Time:");
-			   daily_wage = WAGE_PER_HR * PART_TIME_HR;
+			   daily_wage =Constants.WAGE_PER_HR * Constants.PART_TIME_HR;
+			   total_hr = total_hr  + Constants.PART_TIME_HR;
+					   
 		  break;
-            case IS_full_TIME :
+            case Constants.IS_full_TIME :
 			   
 			   System.out.println("Employee is Full Time:");
-               daily_wage   = WAGE_PER_HR * FULL_TIME_HR;
-               
+               daily_wage   = Constants.WAGE_PER_HR * Constants.FULL_TIME_HR;
+               total_hr = total_hr + Constants.FULL_TIME_HR ;
               break;
               }
-   
-             System.out.println("Daily Wage :"+daily_wage);
+      }
+ 
+   System.out.println("Daily Wage :"+daily_wage);
                month_wage = month_wage + daily_wage  ;
-           
-   } 
-  System.out.println("**********************************");
-
-	  }
  
-  System.out.println("Employee Total  Monthly  Wage: "+month_wage);
-
- 
-
-   }
+     System.out.println("**********************************");
+     days++;
   }
-   
-   
+  
+  System.out.println("Employee Total  Monthly  Wage: "+month_wage);
+ 
 	
-
-
-	
-
-
+}
+}
+   
+  
 
